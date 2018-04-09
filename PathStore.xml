@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<root>
+  <locations>
+    <DVT>
+      <Location>C:\trx</Location>
+      <Location>C:\Build\DVT</Location>
+    </DVT>
+  </locations>
+</root>
