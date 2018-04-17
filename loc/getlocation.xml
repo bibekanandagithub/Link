@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <General>
+    <CreatedTask>Yes</CreatedTask>
+    <Enviornment>DVT</Enviornment>
+    <Password>Passw0rd!</Password>
+    <DistributionWaitTime>6</DistributionWaitTime>
+    <Title>11/04 Dvt Light Regression</Title>
+    <SuiteID/>
+    <RunAll>Yes</RunAll>
+  </General>
+  <Hosts>
+    <Host ShortName="DESKTOP-DQ71QCG"/>
+    <IP>19.168.8.100</IP>
+    <TestFolders>
+      <TestFolder Source="WellsFargo">RGR_Wells</TestFolder>
+     <TestFolder Source="WellsFargo">RGR_Wells_2</TestFolder>
+    </TestFolders>
+    <Username>test</Username>
+    <Password>Passwd</Password>
+      
+      
+    
+  </Hosts>
+</configuration>

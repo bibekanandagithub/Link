@@ -14,3 +14,8 @@ C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\Aut
 C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\obj\Debug\AutomationHelp.pdb
 C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\obj\Debug\AutomationHelp.csprojResolveAssemblyReference.cache
 C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\bin\Debug\LocalCollection.xml
+C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\bin\Debug\loc\getlocation.xml
+C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\bin\Debug\MetroFramework.Design.dll
+C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\bin\Debug\MetroFramework.dll
+C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\obj\Debug\AutomationHelp.Splash.resources

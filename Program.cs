@@ -16,7 +16,7 @@ namespace AutomationHelp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new xsd_help());
+            Application.Run(new Splash ());
         }
     }
 }

@@ -155,5 +155,61 @@ namespace AutomationHelp
                                        .SelectMany(m => m.Skip(1))).Remove();
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string _Producttype = "TestClosingInsight";
+            string _TestSetting = "LUIPUI.TestSettings";
+            string _class = "TestClosingInsight.Test.CiPortalTest";
+            string _Subject = "LUI ClosingCollab Portal"; ;
+            string _dll = "TestClosingInsight.dll";
+            List<ForTestCase> li = new List<ForTestCase>();
+            li.AddRange(new ForTestCase[] { new ForTestCase {
+                TestcaseID = 345677, TestcaseName = "Testing_server" } ,
+                new ForTestCase { TestcaseID = 345678, TestcaseName = "Testing_server_tow" },
+                new ForTestCase { TestcaseID = 345679, TestcaseName = "Testing_server_three" }
+            });
+            
+            using (XmlWriter writer = XmlWriter.Create("xmlconfigstore.xml"))
+            {
+                
+             //   writer.WriteStartDocument(true);
+                writer.WriteComment("this is dynamically generated config file");
+                writer.WriteStartElement("Configuration");
+                writer.WriteElementString("ProductType", _Producttype);
+                writer.WriteElementString("TestSetting", _TestSetting);
+                writer.WriteElementString("Class", _class);
+                writer.WriteElementString("Subject", _Subject);
+                writer.WriteElementString("dll", _dll);
+                writer.WriteStartElement("exportParameterTest");
+                writer.WriteEndElement();
+                writer.WriteElementString("email", "elnovio.amie@gmail.com");
+                writer.WriteElementString("SuiteID","");
+                writer.WriteStartElement("Tests");
+
+
+                foreach(ForTestCase f in li)
+                {
+                    writer.WriteStartElement("test");
+                    writer.WriteAttributeString("id", f.TestcaseID.ToString());
+                    writer.WriteString(f.TestcaseName.ToString());
+                    writer.WriteEndElement();
+                }
+
+              
+
+
+
+                writer.WriteEndElement();
+                 
+                writer.WriteEndDocument();
+
+            }
+        }
+    }
+    public class ForTestCase
+    {
+        public int TestcaseID { set; get; }
+        public string TestcaseName { set; get; }
     }
 }
