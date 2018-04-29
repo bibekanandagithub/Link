@@ -158,6 +158,15 @@ namespace AutomationHelp
 
         private void button5_Click(object sender, EventArgs e)
         {
+            #region Checkboxsettingregion
+            if(checkBox8.Checked)
+            {
+
+            }
+            #endregion
+
+
+
             string _Producttype = "TestClosingInsight";
             string _TestSetting = "LUIPUI.TestSettings";
             string _class = "TestClosingInsight.Test.CiPortalTest";

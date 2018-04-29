@@ -1,0 +1,1 @@
+./runTest -enviornment -qac -config config/test.xml
