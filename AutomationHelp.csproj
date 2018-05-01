@@ -165,6 +165,13 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="loc\LogFile.xml" />
+    <Content Include="loc\WellsSourceSubType.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="loc\wellsSourceType.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="PathStore.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

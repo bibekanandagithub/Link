@@ -22,3 +22,5 @@ C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\Aut
 C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\obj\Debug\AutomationHelp.csprojResolveAssemblyReference.cache
 C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\obj\Debug\AutomationHelp.Demo_2.resources
 C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\bin\Debug\loc\test.bat
+C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\bin\Debug\loc\wellsSourceType.xml
+C:\Users\HQQAAUTOMATION\documents\visual studio 2017\Projects\AutomationHelp\AutomationHelp\bin\Debug\loc\WellsSourceSubType.xml

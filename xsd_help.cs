@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +17,12 @@ namespace AutomationHelp
     public partial class xsd_help : Form
     {
         string fileName = string.Empty;
+        public bool export_parameterCondition = false;
+
         public xsd_help()
         {
             InitializeComponent();
+        
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -159,9 +163,9 @@ namespace AutomationHelp
         private void button5_Click(object sender, EventArgs e)
         {
             #region Checkboxsettingregion
-            if(checkBox8.Checked)
+            if(chk_export_condition.Checked)
             {
-
+               
             }
             #endregion
 
@@ -178,7 +182,12 @@ namespace AutomationHelp
                 new ForTestCase { TestcaseID = 345678, TestcaseName = "Testing_server_tow" },
                 new ForTestCase { TestcaseID = 345679, TestcaseName = "Testing_server_three" }
             });
+
+
+            #region ExportParameterCheck
+
             
+            #endregion
             using (XmlWriter writer = XmlWriter.Create("xmlconfigstore.xml"))
             {
                 
@@ -190,16 +199,60 @@ namespace AutomationHelp
                 writer.WriteElementString("Class", _class);
                 writer.WriteElementString("Subject", _Subject);
                 writer.WriteElementString("dll", _dll);
-                writer.WriteStartElement("exportParameterTest");
+                if (chk_export_condition.Checked)
+                {
+                    writer.WriteStartElement("exportParameterTest");
+                    writer.WriteAttributeString("exportbeforeeachtest", "true");
+                    if (chk_sourcetype.Checked == true)
+                    {
+                        writer.WriteStartElement("Parameter");
+                        writer.WriteAttributeString("Key", "SourceType");
+                        writer.WriteString(drp_sourceType.SelectedItem.ToString());
+                        writer.WriteEndElement();
+
+
+                    }
+
+                    if (chk_subtype.Checked == true)
+                    {
+                        writer.WriteStartElement("Parameter");
+                        writer.WriteAttributeString("Key", "SourcesubType");
+                        writer.WriteString(drp_subtype.SelectedItem.ToString());
+
+                        writer.WriteEndElement();
+
+                    }
+
+
+                   
+                }
+                else
+                {
+                    writer.WriteStartElement("exportParameterTest");
+                }
+               
                 writer.WriteEndElement();
                 writer.WriteElementString("email", "elnovio.amie@gmail.com");
                 writer.WriteElementString("SuiteID","");
                 writer.WriteStartElement("Tests");
 
-
-                foreach(ForTestCase f in li)
+                if (chk_initlize.Checked == true)
                 {
                     writer.WriteStartElement("test");
+                    writer.WriteString("Int_WellsFargo_Initialize");
+                    writer.WriteEndElement();
+                }
+                if (chk_serverinitialize.Checked == true)
+                {
+                    writer.WriteStartElement("test");
+                    writer.WriteString("Int_WellsFargo_Verifyserverstatus");
+                    writer.WriteEndElement();
+                }
+
+                foreach (ForTestCase f in li)
+                {
+                    writer.WriteStartElement("test");
+                   
                     writer.WriteAttributeString("id", f.TestcaseID.ToString());
                     writer.WriteString(f.TestcaseName.ToString());
                     writer.WriteEndElement();
@@ -213,6 +266,70 @@ namespace AutomationHelp
                  
                 writer.WriteEndDocument();
 
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private ArrayList GetXMLsource(string path,string tagname)
+        {
+            ArrayList al = new ArrayList();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+
+            //Display all the book titles.
+            XmlNodeList elemList = doc.GetElementsByTagName(tagname);
+            for (int i = 0; i < elemList.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(elemList[i].InnerXml))
+                {
+                    al.Add(elemList[i].InnerXml);
+                }
+            }
+            return al;
+
+        }
+
+        private void xsd_help_Load(object sender, EventArgs e)
+        {
+            foreach(string li in GetXMLsource("loc/wellsSourceType.xml", "sourceType"))
+            {
+                drp_sourceType.Items.Add(li);
+            }
+            foreach (string li in GetXMLsource("loc/WellsSourceSubType.xml", "subType"))
+            {
+                drp_subtype.Items.Add(li);
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked)
+            {
+                chk_export_condition.Enabled = true;
+                chk_initlize.Enabled = true;
+                chk_serverinitialize.Enabled = true;
+                chk_sourcetype.Enabled = true;
+                chk_subtype.Enabled = true;
+                drp_sourceType.Enabled = true;
+                drp_subtype.Enabled = true;
+                checkBox7.Enabled = true;
+                checkBox6.Enabled = true;
+
+            }
+            else
+            {
+                chk_export_condition.Enabled = false;
+                chk_initlize.Enabled = false;
+                chk_serverinitialize.Enabled = false;
+                chk_sourcetype.Enabled = false;
+                chk_subtype.Enabled = false;
+                drp_sourceType.Enabled = false;
+                drp_subtype.Enabled = false;
+                checkBox7.Enabled = false;
+                checkBox6.Enabled = false;
             }
         }
     }
